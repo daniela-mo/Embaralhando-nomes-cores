@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        nomes = ["Daniela", "Guilherme", "Amy", "Phoebe", "Bernadeth"];
+        cores = ["#6495ED", "#ffc415", "#b81414", "#ab64ed", "#50C878"];
+
+        //Função Aba 1
+        $("#aba1").click(function () {
+          document.getElementById("tr_aba1").style.background = "#ff0000";
+          document.getElementById("tr_aba2").style.background = "#fff";
+          document.getElementById("tr_aba3").style.background = "#fff";
+          nomes = ["Daniela", "Guilherme", "Amy", "Phoebe", "Bernadeth"];
+          cores = ["#6495ED", "#ffc415", "#b81414", "#ab64ed", "#50C878"];
+
+          //Função Nome
+          var nome = nomes.sort();
+          for (var i = 0; i < 5; i++) {
+            $("#tr" + i).empty();
+            $("#tr" + i).append(nome[i]);
+          }
+
+          //Função cor)
+          for (var i = 0; i < 5; i++) {
+            document.getElementById("tr" + i).style.background = cores[i];
+          }
+        });
+
+        //Função Aba 2
+        $("#aba2").click(function () {
+          document.getElementById("tr_aba1").style.background = "#fff";
+          document.getElementById("tr_aba2").style.background = "#f00";
+          document.getElementById("tr_aba3").style.background = "#fff";
+          nomes = ["Joe", "Leonard", "Lili", "Frajola", "Robin"];
+          cores = ["#6495ED", "#ffc415", "#b81414", "#ab64ed", "#50C878"];
+
+          //Função Nome
+          var nome = nomes.sort();
+          for (var i = 0; i < 5; i++) {
+            $("#tr" + i).empty();
+            $("#tr" + i).append(nome[i]);
+          }
+
+          //Função Cor
+          for (var i = 0; i < 5; i++) {
+            document.getElementById("tr" + i).style.background = cores[i];
+          }
+        });
+
+        //Função Aba 3
+        $("#aba3").click(function () {
+          document.getElementById("tr_aba1").style.background = "#fff";
+          document.getElementById("tr_aba2").style.background = "#fff";
+          document.getElementById("tr_aba3").style.background = "#f00";
+          nomes = ["Sheldon", "Ross", "Rachel", "Penny", "Monica"];
+          cores = ["#6495ED", "#ffc415", "#b81414", "#ab64ed", "#50C878"];
+
+          //Função Nome
+          var nome = nomes.sort();
+          for (var i = 0; i < 5; i++) {
+            $("#tr" + i).empty();
+            $("#tr" + i).append(nome[i]);
+          }
+
+          //Função Cor
+          for (var i = 0; i < 5; i++) {
+            document.getElementById("tr" + i).style.background = cores[i];
+          }
+        });
+
+        //Função cor
+        $("#cor").click(function () {
+          for (
+            var j, x, i = cores.length;
+            i;
+            j = parseInt(Math.random() * i),
+              x = cores[--i],
+              cores[i] = cores[j],
+              cores[j] = x
+          );
+          var cores_gerado = cores;
+          for (var i = 0; i < 5; i++) {
+            document.getElementById("tr" + i).style.background =
+              cores_gerado[i];
+          }
+        });
+
+        //Função Nome
+        $("#nome").click(function () {
+          var nome = nomes.sort();
+          for (var i = 0; i < 5; i++) {
+            $("#tr" + i).empty();
+            $("#tr" + i).append(nome[i]);
+          }
+        });
+
+        //Função Embaralhar
+        $("#embaralhar").click(function () {
+          var nome = nomes;
+          for (
+            var j, x, i = nome.length;
+            i;
+            j = parseInt(Math.random() * i),
+              x = nome[--i],
+              nome[i] = nome[j],
+              nome[j] = x
+          );
+          var nomes_gerado = nome;
+          for (var i = 0; i < 5; i++) {
+            $("#tr" + i).empty();
+            $("#tr" + i).append(nomes_gerado[i]);
+          }
+        });
+      });
+    </script>
+    <meta charset="UTF-8" />
+    <title>Projeto 2</title>
+  </head>
+  <body>
+    <form name="formulario" id="formulario">
+      <table width="441" border="1">
+        <tr>
+          <th width="108" scope="col" id="tr_aba1" border="none">
+            <input type="button" name="aba1" id="aba1" value="Aba 1" />
+          </th>
+          <th width="105" scope="col" id="tr_aba2" border="none">
+            <input type="button" name="aba2" id="aba2" value="Aba 2" />
+          </th>
+          <th scope="col" colspan="1" id="tr_aba3" border="none">
+            <input type="button" name="aba3" id="aba3" value="Aba 3" />
+          </th>
+        </tr>
+        <tr>
+          <th scope="row" colspan="4" id="0" bgcolor="#6495ED" border="none">
+            <div id="tr0">Daniela</div>
+          </th>
+        </tr>
+        <tr>
+          <th scope="row" colspan="4" id="1" bgcolor="#CC9900" border="none">
+            <div id="tr1">Guilherme</div>
+          </th>
+        </tr>
+        <tr>
+          <th scope="row" colspan="4" id="2" bgcolor="#999" border="none">
+            <div id="tr2">Amy</div>
+          </th>
+        </tr>
+        <tr>
+          <th scope="row" colspan="4" id="3" bgcolor="#ffcc00">
+            <div id="tr3">Phoebe</div>
+          </th>
+        </tr>
+        <tr>
+          <th scope="row" colspan="4" id="4" bgcolor="#50c878">
+            <div id="tr4s">Bernadeth</div>
+          </th>
+        </tr>
+
+        <tr>
+          <th scope="col">Ordenar por:</th>
+          <th scope="col">
+            <input type="button" name="nome" id="nome" value="Nome" />
+          </th>
+          <th width="89" scope="col">
+            <input type="button" name="cor" id="cor" value="Cor" />
+          </th>
+          <th width="111" scope="col">
+            <input
+              type="button"
+              name="embaralhar"
+              id="embaralhar"
+              value="Embaralhar"
+            />
+          </th>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
